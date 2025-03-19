@@ -1,4 +1,65 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ddd;
+/* Global Reset */
+* {
+    margin: 0; /* Poistaa kaikkien elementtien oletusmarginaalit */
+    padding: 0; /* Poistaa kaikkien elementtien oletustäytöt */
+    box-sizing: border-box; /* Sisällyttää reunukset ja täytöt elementin kokonaisleveyteen ja -korkeuteen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Asettaa oletusfontin */
+    background-color: #ddd; /* Asettaa oletustaustavärin */
+}
+/* Root. Tässä määritetään sivuston värit jotta muissa osissa riittää määritelmäksi "primary color" tms, tähän voi lisätä enemmän värejä jos se on tarpeen */
+:root {
+    --primary-color: #0078d7; 
+    --secondary-color: #005a9e; 
+    --background-color: #f4f4f4; 
+    --text-color: #333; 
+    --navi-color: #f19012; 
+}
+
+/* Bodyn tyyli */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* Headerit ja Navigaatio */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: var(--navi-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    text-align: center;
 }
