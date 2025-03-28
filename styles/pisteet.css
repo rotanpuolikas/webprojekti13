@@ -1,0 +1,24 @@
+h1{
+    font-size: 3em;
+}
+
+.pisteet{
+    font-size: 10em;
+    animation: pisteanim 4s linear 0s infinite;
+    -webkit-animation: pisteanim 4s linear 0s infinite;
+}
+
+main{
+    text-align: center;
+}
+
+
+@keyframes pisteanim{
+    0%  {color: red;}
+    16% {color: orange;}
+    33% {color: yellow;}
+    49% {color: green;}
+    66% {color: blue;}
+    83% {color: purple;}
+    100%{color: red;}
+}
