@@ -12,3 +12,27 @@ html{
     width: 100%;
     height: 100%;
 }
+
+#pooh{
+    margin-left: 6em;
+    margin-right: 6em;
+    margin-top: 2em;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+
+.harjoitus{
+    color: #888
+}
+
+.incorrect{
+    color: red;
+    text-decoration: underline;
+    background-color: lightblue;
+}
+
+.correct{
+    color: green;
+    background-color: lightblue;
+}
