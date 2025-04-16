@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#game {
+    width: 800px;
+    height: 400px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 255, 21);
+    position: absolute;
+    bottom: 130px;
+    left: 480px;
+    animation: block 2s infinite linear;
+}
+
+#character {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 130px;
+    left: 50px;
+    background-image: url('img/sprite-sheet.png');
+    background-size: 800px 100px;
+    background-repeat: no-repeat;
+    animation: run 900ms steps(8) infinite;
+}
+
+.animate {
+    animation: jump 500ms; /* Hyppy-animaatio */
+    animation-fill-mode: forwards; /* Ensures the animation stays at the end state */
+}
+
+#obstacle {
+    width: 20px;
+    height: 40px;
+    
+    background-color: red;
+    position: absolute;
+    bottom: 130px;
+    left: 480px;
+    animation: block 2s infinite linear;
+    z-index: 1;
+}
+
+@keyframes run {
+    0% { background-position: -12px 0; }
+    100% { background-position: -812px 0; }
+}
+
+@keyframes jump {
+    0% { bottom: 130px; }
+    50% { bottom: 280px; } /* Maximum jump height */
+    100% { bottom: 130px; }
+}
+
+@keyframes block {
+    0% { left: 480px; }
+    100% { left: -40px; }
+}
