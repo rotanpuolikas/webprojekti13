@@ -32,7 +32,7 @@ body {
     position: absolute;
     bottom: 130px;
     left: 50px;
-    background-image: url('img/sprite-sheet.png');
+    background-image: url('/img/sprite-sheet.png');
     background-size: 800px 100px;
     background-repeat: no-repeat;
     animation: run 900ms steps(8) infinite;
