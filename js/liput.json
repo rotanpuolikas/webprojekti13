@@ -1,6 +1,6 @@
 [
     {
-        "img": "argentina",
+        "img": "argentina.png",
         "options": [
             "Ruotsi", 
             "argentina",
@@ -9,7 +9,7 @@
         "right_answer": "argentina"
     },
     {
-        "img": "Tanska",
+        "img": "tanska.png",
         "options": [
             "Norja",
              "Islanti",
@@ -18,7 +18,7 @@
         "right_answer": "Tanska"
     },
     {
-        "img": "Brasilia",
+        "img": "brasilia.png",
         "options": [
             "Brasilia", 
             "Espanja",
@@ -27,7 +27,7 @@
         "right_answer": "Brasilia"
     },
     {
-        "img": "Kanada",
+        "img": "kanada.png",
         "options": [
             "Meksiko", 
             "Kanada",
@@ -36,7 +36,7 @@
         "right_answer": "Kanada"
     },
     {
-        "img": "Japani",
+        "img": "Japani.png",
         "options": [
             "Etelä-Korea", 
             "Taiwan",
@@ -45,7 +45,7 @@
         "right_answer": "Japani"
     },
     {
-        "img": "Egypti",
+        "img": "Egypti.png",
         "options": [
             "Egypti", 
             "Etelä-Afrikka",
@@ -54,7 +54,7 @@
         "right_answer": "Egypti"
     },
     {
-        "img": "Irlanti",
+        "img": "Irlanti.png",
         "options": [
             "Puola", 
             "Irlanti",
@@ -63,7 +63,7 @@
         "right_answer": "Irlanti"
     },
     {
-        "img": "Intia",
+        "img": "Intia.png",
         "options": [
             "Irlanti", 
             "Intia",
@@ -72,16 +72,16 @@
         "right_answer": "Intia"
     },
     {
-        "img": "Thaimaa",
+        "img": "Thaimaa.png",
         "options": [
             "Thaimaa", 
             "Filippiinit",
             "Turkki"
         ],
-        "right_answer": "Intia"
+        "right_answer": "Thaimaa"
     },
     {
-        "img": "Italia",
+        "img": "Italia.png",
         "options": [
             "Ranska", 
             "Espanja",
