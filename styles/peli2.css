@@ -3,6 +3,7 @@
     margin: 0; 
 }
 
+/* Yleistyyli: tausta, keskitys, koko */
 body {
     background: black; 
     display: flex; 
@@ -13,27 +14,29 @@ body {
 
 /* Pelialueen tyylialue */
 canvas {
-    border: 1px solid white; /* Adds a white border around the canvas */
+    border: 1px solid white; /* Lisää valkoisen reunuksen canvasin ympärille */
+    background-color: black; /* Asettaa taustan mustaksi */
+    max-width: 100%;
+    max-height: 80vh;
 }
 
 /* Pelikontainerin ulkomuoto */
 #game-container {
-    display: flex; /* Enables flexbox layout */
-    justify-content: center; /* Centers children horizontally */
-    align-items: center; /* Centers children vertically */
-    flex-grow: 1; /* Allows the container to grow and fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-#keycapture {
+#game-area {
     display: flex; 
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    height: 80vh;
-    margin: 0 auto; 
-    text-align: center;
-    background-color: #f9f9f9;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%; 
 }
 
 /* Varmuus tyyli jos ylätyylit ei toimi */
@@ -50,17 +53,4 @@ main {
     display: flex;
     justify-content: center; 
     align-items: center;
-}
-
-#game-area {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-    padding: 20px;
-}
-/* Pelialueen tyylit */
-canvas {
-    border: 1px solid #333; /* Adds a dark gray border */
-    background-color: black; /* Sets the background color to black */
 }
