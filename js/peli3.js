@@ -65,7 +65,7 @@ function addQuestionData(obj, count) {
         //Vaihtoehdot
         flagLis.forEach((li, i) => {
             li.id =`answer_${i+1}`;
-            li.dataset.asnwer=obj[`options`][i];
+            li.dataset.answer=obj[`options`][i];
             li.innerHTML = obj[`options`][i];
 
         });
@@ -75,7 +75,7 @@ function addQuestionData(obj, count) {
 function checkAnswer(rAnswer, count) {
     let choosenAnswer;
     for (let i = 0; i < flagLis.length; i++){
-        if(flaglis[i].classList.contains('active')) {
+        if(flagLis[i].classList.contains('active')) {
             choosenAnswer = flagLis[i].dataset.answer;
             if(rAnswer === choosenAnswer){
                 flagLis[i].classList.add('success');
