@@ -16,6 +16,19 @@ body {
     overflow: hidden;
 }
 
+#sky {
+    width: 100%;
+    height: 300px;
+    background-image: url('/img/vanha-aika.png'); /* Taivaan kuva */
+    background-size:120% ; /* Peittää koko alueen */
+    background-repeat: repeat - x;
+    background-position: center center; /* Nostaa kuvan ylös */
+    position: absolute;
+    top: 0;
+    z-index: 0; /* Taivaan kerros */
+    animation: move 100s linear infinite; /* Animaatio, joka liikuttaa taivasta vasemmalle */
+}
+
 #ground {
     width: 100%;
     height: 140px;
@@ -42,7 +55,7 @@ body {
     position: absolute;
     top: 70px;
     left: 750px;
-    animation: fly 1s steps(2) infinite, move-left 5s linear infinite; /* Animaatio, joka käy läpi kaikki 8 framea */
+    animation: fly 1s steps(2) infinite, move-left 3s linear infinite; /* Animaatio, joka käy läpi kaikki 8 framea */
         
 }
 @keyframes move-left {
@@ -78,7 +91,7 @@ body {
     position: absolute;
     bottom: 130px;
     left: 750px;
-    animation: block 3s infinite linear;
+    animation: block 5s infinite linear;
     z-index: 1;
 }
 

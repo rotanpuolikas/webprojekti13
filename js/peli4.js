@@ -1,14 +1,13 @@
 console.log("Script is working!");
 
 var character = document.getElementById("character");
-var papukaija = document.getElementById("lokki");
-var block = document.getElementById("block");
+var papukaija = document.getElementById("papukaija");
+var obstacle = document.getElementById("obstacle");
 var scoreElement = document.getElementById("score");
 var isJumping = false; // Flag to check if the character is jumping
 var jumpHeight = 150; // Hyppykorkeus
 var jumpSpeed = 5; // Nopeus, jolla hahmo liikkuu ylös ja alas
 var score = 0; // Pisteet
-
 
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Space' && !isJumping) {
@@ -40,13 +39,13 @@ function jump() {
 
 var checkDead = setInterval(function() {
     var characterBottom = parseInt(window.getComputedStyle(character).getPropertyValue("bottom"));
-    var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    var obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
 
-    if (blockLeft < 70 && blockLeft > 0 && characterBottom <= 130) {
+    if (obstacleLeft < 70 && obstacleLeft > 0 && characterBottom <= 130) {
         alert("Game Over! Your score: " + score); // Näytä pelin päättymisilmoitus
         clearInterval(checkDead);
     } else {
-        score+= 0.05; // Lisää 0.05 pistettä jokaisella päivityksellä
-        scoreElement.innerHTML = "Score: " + Math.floor(score); // Näytä vain kokonaisluvut
+        score += 0.05; // Lisää 0.05 pistettä jokaisella päivityksellä
+        scoreElement.innerHTML = "Vuosi: " + Math.floor(score); // Näytä vain kokonaisluvut
     }
 }, 5); // Tarkistetaan törmäys 5ms välein
