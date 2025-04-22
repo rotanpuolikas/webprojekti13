@@ -6,13 +6,15 @@
     <title>Etusivu</title>
     <link rel="stylesheet" href="./styles/teema.css">
     <link rel="stylesheet" href="./styles/peli2.css">
+
 </head>
 <body>
     <header>
         <nav class="navbar">
+            <!-- Navigaatiopalkki, valittu linkki korostettuna -->
             <a href="./index.html" class="nav-item selected">Etusivu</a>
             <a href="./kirjoituspeli.html" class="nav-item">eka linkki</a>
-            <a href="./matopeli.html" class="nav-item">toka linkki</a>
+            <a href="./matopeli.html" class="nav-item">toka linkki</a> <!-- tämä sivu -->
             <a href="./muistipeli.html" class="nav-item">kolmas linkki</a>
             <a href="./peli4.html" class="nav-item">neljäs linkki</a>
             <a href="./peli5.html" class="nav-item">viides linkki</a>
@@ -21,7 +23,11 @@
         </nav>
     </header>
 
-    <main id="game-container"> <!--Matopelin alue-->
+    <main id="game-container"> <!-- Matopelin pääalue -->
+        <div id="game-info"> <!-- Ohjeet ja laskuri -->
+            <p id="instructions">Pelaa nuolinäppäimillä ja yritä tunnistaa 10 hedelmää tai marjaa!</p>
+            <p id="score-display">Pisteet: 0 / 10</p>
+        </div>
         <div id="game-area">
             <canvas id="game"></canvas>
         </div>
@@ -33,6 +39,7 @@
         <a href="https://github.com/rotanpuolikas/webprojekti13">Linkki githubbirepoon</a>
     </footer>
 
+    <!-- JavaScript-tiedosto joka sisältää pelilogiikan -->
     <script src="./js/peli2.js"></script>
 </body>
 </html>

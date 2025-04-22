@@ -16,7 +16,9 @@ var fruitImages = [
     { name: "Mandariini", file: "Mandariini.jpg" },
     { name: "Ananas", file: "Ananas.jpg" },
     { name: "Vadelma", file: "Vadelma.jpg" },
-    { name: "Vesimeloni", file: "Vesimeloni.jpg" }
+    { name: "Vesimeloni", file: "Vesimeloni.jpg" },
+    { name: "Omena", file: "Omena.jpg" },
+    { name: "Kiivi", file: "Kiivi.jpg" }
 ];
 
 var currentFruit = null;
@@ -43,6 +45,14 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// Päivittää pisteiden näyttö
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById("score-display");
+    if (scoreDisplay) {
+        scoreDisplay.textContent = "Pisteet: " + score + " / 10";
+    }
+}
+
 // Asettaa satunnaisen hedelmän tai marjan ja paikan
 function placeNewFruit() {
     currentFruit = fruitImages[getRandomInt(0, fruitImages.length)];
@@ -61,13 +71,15 @@ function askQuestion() {
     let answer = prompt("Minkä hedelmän tai marjan söit?");
     if (answer && answer.toLowerCase() === currentFruit.name.toLowerCase()) {
         score++;
-        alert("Oikein! Pisteet: " + score + "/8");
+        alert("Oikein! Pisteet: " + score + " / 10");
     } else {
         alert("Väärin! Oikea vastaus oli: " + currentFruit.name);
     }
 
-    if (score >= 8) {
-        alert("Onneksi olkoon! Sait 8/8 oikein!");
+    updateScoreDisplay(); // Päivittää näkyvän pistemäärän
+
+    if (score >= 10) {
+        alert("Onneksi olkoon! Sait kaikki oikein!");
         location.reload(); // Aloittaa pelin uudelleen
     }
 
@@ -78,8 +90,9 @@ function askQuestion() {
 function loop() {
     requestAnimationFrame(loop); // Jatkuva peliluuppi
 
-    // Hidastaa peliä jotta se ei mene liian nopeasti
-    if (++count < 4) return;
+    // Hidastaa peliä jotta se ei mene liian nopeasti, alkuperäinen nopeus 4
+    // Jos peli on liian nopea, lisää lukuun 4
+    if (++count < 6) return;
     count = 0;
 
     context.clearRect(0, 0, canvas.width, canvas.height); // Tyhjentää ruudun
@@ -123,6 +136,7 @@ function loop() {
                 snake.dx = grid;
                 snake.dy = 0;
                 score = 0;
+                updateScoreDisplay(); // Nollaa pisteet näkymässä
                 placeNewFruit(); // Asettaa uuden satunnaisen hedelmän
             }
         }
@@ -163,4 +177,5 @@ resizeCanvas();
 
 // Käynnistää pelin
 placeNewFruit();
+updateScoreDisplay(); // Näyttää pisteet heti
 requestAnimationFrame(loop);
