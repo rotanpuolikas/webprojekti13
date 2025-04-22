@@ -8,6 +8,7 @@ let scoreDiv = document.querySelector('.score');
 let correctAns = document.querySelector('.score .right span');
 let incorrectAns = document.querySelector('.score .incorrect span');
 let btnNewGame = document.querySelector('#newGame');
+let questionCounter = 1; // alkaa ykkösestä
 
 let currentIndex = 0;
 let rightAnswer = 0;
@@ -18,7 +19,7 @@ function getQuestion(){
         if(this.readyState === 4 && this.status === 200){
             let questions = JSON.parse(this.responseText);
             let qCount = 10;
-            questionNum(qCount);
+            questionNum(questionCounter);
             questions = questions.sort(() => Math.random() - Math.random()).slice(0, 10);
             addQuestionData(questions[currentIndex],qCount);
 
@@ -38,7 +39,12 @@ function getQuestion(){
                         li.classList.remove('success');
                         li.classList.remove('wrong');
 
+                        if (currentIndex < qCount) {
+                        questionCounter++;
+                        questionNum(questionCounter);
+
                         addQuestionData(questions[currentIndex], qCount);
+                        }
 
                     }, 1000);
 
