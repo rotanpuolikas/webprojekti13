@@ -25,6 +25,7 @@ html {
     font-weight: 400;
     line-height: 1.6;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 ul {
@@ -182,4 +183,11 @@ h3 {
     .flags .flag-options ul li:hover {
         color: var(--white)
     }
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 8em); /* 8em = header (4em) + footer (4em) */
 }

@@ -1,56 +1,70 @@
-﻿html, body {
+﻿/* Asetetaan koko sivulle 100% korkeus ja poistetaan oletusmarginaalit */
+html, body {
     height: 100%;
-    margin: 0; 
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-/* Yleistyyli: tausta, keskitys, koko */
+/* Sivun yleisasettelu: musta tausta, keskitys ja korkeus */
 body {
-    background: black; 
-    display: flex; 
+    background-color: black;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
+    min-height: 100vh;
 }
 
-/* Pelialueen tyylialue */
+/* Pelialueen canvas-ruutu */
 canvas {
-    border: 1px solid white; /* Lisää valkoisen reunuksen canvasin ympärille */
-    background-color: black; /* Asettaa taustan mustaksi */
-    max-width: 100%;
-    max-height: 80vh;
+    background-color: black;           /* Canvasin taustaväri */
+    border: 2px solid white;           /* Valkoinen reunaviiva */
+    width: auto;                       /* Skaalaa automaattisesti */
+    height: auto;
+    max-width: 90vw;                   /* Enintään 90% näytön leveydestä */
+    max-height: 70vh;                  /* Enintään 70% näytön korkeudesta */
+    image-rendering: pixelated;        /* Näyttää pikselit selkeämmin (retro-tyyli) */
 }
 
-/* Pelikontainerin ulkomuoto */
+/* Pääkontaineri, joka keskittää canvasin ja säätää sen korkeuden */
 #game-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
+    height: calc(100vh - 140px); /* Vähennetään headerin ja footerin tilaa */
     padding: 20px;
     box-sizing: border-box;
+    width: 100%;
 }
 
+/* Varsinainen pelialue canvasin ympärillä */
 #game-area {
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; 
+    width: 100%;
+    flex-grow: 1;
 }
 
-/* Varmuus tyyli jos ylätyylit ei toimi */
-body {
-    margin: 0;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
+/* Varmistetaan, että main-alue venyy täyttämään jäljelle jäävän tilan */
 main {
     flex: 1;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
+}
+/* Pelin ohjeet ja tiedot */
+#game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#game-info p {
+    margin: 4px;
+    font-size: 16px;
 }
