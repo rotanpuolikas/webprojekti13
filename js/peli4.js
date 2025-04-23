@@ -4,7 +4,7 @@ var character = document.getElementById("character");
 var papukaija = document.getElementById("papukaija");
 var obstacle = document.getElementById("obstacle");
 var scoreElement = document.getElementById("score");
-var isJumping = false; // Flag to check if the character is jumping
+var isJumping = false; // tarkistaa, onko hahmo hyppäämässä
 var jumpHeight = 200; // Hyppykorkeus
 var jumpSpeed = 6; // Nopeus, jolla hahmo liikkuu ylös ja alas
 var score = -200; // Pisteet
@@ -97,22 +97,36 @@ function startGame() {
         var obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
 
         // Päivitä pisteet
-        score += 0.05; // Lisää 0.05 pistettä jokaisella päivityksellä
+        score += 0.08; // Lisää 0.05 pistettä jokaisella päivityksellä
         scoreElement.innerHTML = "Vuosi: " + Math.floor(score); // Näytä vain kokonaisluvut
 
         // Vaihda taustakuva scoren mukaan
-        if (score >= -200 && score < 100) {
+        if (score >= -200 && score < 200) {
             document.getElementById("sky").style.backgroundImage = "url('/img/vanha-aika.png')";
-        } else if (score >= 100 && score < 300) {
+        } else if (score >= 200 && score < 500) {
             document.getElementById("sky").style.backgroundImage = "url('/img/rooma.png')";
-        } else if (score >= 300) {
-            document.getElementById("sky").style.backgroundImage = "url('/img/moderni.png')";
+        } else if (score >= 500 && score < 900) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/linna.png')";
+        } else if (score >= 900 && score < 1300) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/viikinkikylä.png')"; 
+        } else if (score >= 1200 && score < 1500) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/renesanssi.png')"; 
+        } else if (score >= 1500 && score < 1700) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/löytöretket.png')"; 
+        } else if (score >= 1700 && score < 1850) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/teollinen.png')";
+        } else if (score >= 1900 && score < 2000) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/1sota.png')";
+        } else if (score >= 2000 && score < 2150) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/nykyaika.png')";
+        } else if (score >= 2150) {
+            document.getElementById("sky").style.backgroundImage = "url('/img/tulevaisuus.png')";
         }
 
         // Törmäyksen tarkistus (jos käytössä)
-        //if (obstacleLeft < 70 && obstacleLeft > 0 && characterBottom <= 130) {
-          //  gameOver(); // Kutsu pelin päättymisfunktiota
-           // clearInterval(checkDead);
-        //}
+        if (obstacleLeft < 75 && obstacleLeft > 0 && characterBottom <= 130) {
+           gameOver(); // Kutsu pelin päättymisfunktiota
+            clearInterval(checkDead);
+        }
     }, 5); // Tarkistetaan törmäys ja päivitetään pisteet 50ms välein
 }
