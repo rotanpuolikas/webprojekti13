@@ -106,14 +106,22 @@
 
   <script>
     const baseSymbols = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍍', '🥝', '🍑'];
-    const symbols = [...baseSymbols.slice(0, 5), ...baseSymbols.slice(0, 5)]; // 5 paria, 10 korttia
+    const symbols = [...baseSymbols.slice(0, 5), ...baseSymbols.slice(0, 5)]; // 5 paria 10 korttia
 
     let selected = [], score = 0, maxScore = 10;
     document.getElementById('score').textContent = `${score}/${maxScore}`;
 
     function updateScore() {
-      score += 2; // Increment score by 1 for each matched pair
+      score += 2; 
       document.getElementById('score').textContent = `${score}/${maxScore}`;
+      localStorage.setItem('muistipeliScore', score); // savelocalstorage
+    }
+
+    function resetGame() {
+      score = 0;
+      document.getElementById('score').textContent = `${score}/${maxScore}`;
+      localStorage.setItem('muistipeliScore', score); // Reset score in localStorage
+      createBoard();
     }
 
     function createBoard() {
@@ -159,7 +167,7 @@
       if (first.dataset.symbol === second.dataset.symbol) {
         first.classList.add('matched');
         second.classList.add('matched');
-        updateScore(); // Increment score by 1 for a match
+        updateScore(); 
         checkWin();
       } else {
         first.classList.remove('flipped');
@@ -173,12 +181,6 @@
       if (allMatched) {
         document.getElementById('message').textContent = 'Kaikki parit löytyivät! 🎉';
       }
-    }
-
-    function resetGame() {
-      score = 0;
-      document.getElementById('score').textContent = `${score}/${maxScore}`;
-      createBoard();
     }
 
     createBoard();
