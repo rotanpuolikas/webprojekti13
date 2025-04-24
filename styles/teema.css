@@ -7,7 +7,14 @@
 html{
     overflow-x: hidden;
     background-color: #eee;
-}
+        overflow-x: hidden;
+        background-color: #eee;
+        background-image: ('./images/taustakuva.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+    }
+
 
 header{
     background-color: lightblue;

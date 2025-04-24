@@ -9,16 +9,41 @@ body {
 }
 
 #game {
-    width: 800px;
-    height: 400px;
+    position: center;
+    margin: auto;
+    width: 1000px;
+    height: 600px;
     border: 1px solid black;
     position: relative;
     overflow: hidden;
 }
+#menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Varmistaa, että menu on päällimmäisenä */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Vihreä väri */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 #sky {
     width: 100%;
-    height: 300px;
+    height: 460px;
     background-image: url('/img/vanha-aika.png'); /* Taivaan kuva */
     background-size:120% ; /* Peittää koko alueen */
     background-repeat: repeat - x;
@@ -26,24 +51,30 @@ body {
     position: absolute;
     top: 0;
     z-index: 0; /* Taivaan kerros */
-    animation: move 100s linear infinite; /* Animaatio, joka liikuttaa taivasta vasemmalle */
+    animation: move 50s linear infinite; /* Animaatio, joka liikuttaa taivasta vasemmalle */
 }
 
 #ground {
-    width: 100%;
+    width: 1000px;
     height: 140px;
-     /* Ruskea väri maalle */
     position: absolute;
     bottom: 0;
     background-image: url('/img/polku.png'); /* Polun kuva */
-    background-size: cover; /* Peittää koko alueen */
+    background-size: auto; /* Peittää koko alueen */
+    background-position: center bottom; /* Nostaa kuvan ylös */
     background-repeat: repeat-x;
     z-index: 0; /* Taustakerros */
-    animation: move 5s linear infinite; /* Animaatio, joka liikuttaa maata vasemmalle */
+    animation: move-ground 6s linear infinite; /* Animaatio, joka liikuttaa maata vasemmalle */
 }
+
+@keyframes move-ground {
+    0% { background-position: 0px; }
+    100% { background-position: -1000px; } /* Liikkuu vasemmalle */
+}
+
 @keyframes move {
     0% { background-position: 0px; }
-    100% { background-position: -800px; } /* Liikkuu vasemmalle */
+    100% { background-position: -200px; } /* Liikkuu vasemmalle */
 }
 
 #papukaija {
@@ -54,12 +85,12 @@ body {
     background-repeat: no-repeat;
     position: absolute;
     top: 70px;
-    left: 750px;
-    animation: fly 1s steps(2) infinite, move-left 3s linear infinite; /* Animaatio, joka käy läpi kaikki 8 framea */
+    left: 1100px;
+    animation: fly 1s steps(2) infinite, move-left 5s linear infinite; /* Animaatio, joka käy läpi kaikki 8 framea */
         
 }
 @keyframes move-left {
-    0% { left: 750px; }
+    0% { left: 1100px; }
     100% { left: -50px; } /* Papukaija liikkuu vasemmalle */
 }
 
@@ -83,19 +114,19 @@ body {
 }
 
 #obstacle {
-    width: 50px;
-    height: 100px;
+    width: 75px;
+    height: 170px;
     background-image:url('/img/puu.png'); /* Esteen kuva */
-    background-size: 50px 100px; /* Esteen koko */
+    background-size: 75px 170px; /* Esteen koko */
     background-repeat: no-repeat;
     position: absolute;
-    bottom: 130px;
-    left: 750px;
-    animation: block 5s infinite linear;
+    bottom: 110px;
+    left: 1001px;
+    animation: obstacle 6600ms infinite linear;
     z-index: 1;
 }
 
-
+ 
 #score {
     position: absolute;
     top: 10px;
@@ -116,11 +147,17 @@ body {
     100% { bottom: 130px; }
 }
 
-@keyframes block {
-    0% { left: 750px; }
-    100% { left: -40px; }
+@keyframes obstacle {
+    0% { left: 1000px; }
+    100% { left: -100px; }
 }
 @keyframes fly {
     0% { background-position: 0px; }
     100% { background-position: -100px; } /* Käy läpi kaikki frame */   
 }
+header {
+    
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}   

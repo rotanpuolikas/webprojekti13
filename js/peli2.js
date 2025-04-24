@@ -6,6 +6,7 @@ var grid = 16;
 // Peli nopeuden säätö
 var count = 0;
 var score = 0; // Pistelaskuri
+var waitingForAnswer = false; // Estää tuplatörmäyksen kun uusi hedelmä ilmestyy
 
 // Hedelmien/marjojen lista
 var fruitImages = [
@@ -23,6 +24,7 @@ var fruitImages = [
 
 var currentFruit = null;
 var fruitImage = new Image();
+var fruitSize = grid * 4; // Hedelmän koko 4x4 ruutua
 
 // Käärmeen alkuperäinen sijainti, suunta ja koko
 var snake = {
@@ -57,14 +59,25 @@ function updateScoreDisplay() {
 function placeNewFruit() {
     currentFruit = fruitImages[getRandomInt(0, fruitImages.length)];
     fruitImage.src = "./img/" + currentFruit.file;
-    apple.x = getRandomInt(0, canvas.width / grid) * grid;
-    apple.y = getRandomInt(0, canvas.height / grid) * grid;
-}
 
-// Piirtää hedelmän kuvan kun se on ladattu
-fruitImage.onload = () => {
-    context.drawImage(fruitImage, apple.x, apple.y, grid, grid);
-};
+    let validPosition = false;
+
+    // Toistetaan kunnes saadaan paikka, joka ei osu käärmeen kehoon
+    while (!validPosition) {
+        apple.x = getRandomInt(0, (canvas.width - fruitSize) / grid) * grid;
+        apple.y = getRandomInt(0, (canvas.height - fruitSize) / grid) * grid;
+
+        // Tarkista ettei osu käärmeen soluihin
+        validPosition = !snake.cells.some(cell => {
+            return (
+                cell.x < apple.x + fruitSize &&
+                cell.x + grid > apple.x &&
+                cell.y < apple.y + fruitSize &&
+                cell.y + grid > apple.y
+            );
+        });
+    }
+}
 
 // Näyttää kysymyksen mikä marja/hedelmä syötiin
 function askQuestion() {
@@ -83,7 +96,11 @@ function askQuestion() {
         location.reload(); // Aloittaa pelin uudelleen
     }
 
-    placeNewFruit();
+    // Odotetaan hetki ennen uuden hedelmän asettamista
+    setTimeout(() => {
+        placeNewFruit(); // Siirretään uusi hedelmä nyt vasta
+        waitingForAnswer = false; // Salli törmäykset uudelleen
+    }, 300); // 300 ms = riittävästi että mato ehtii liikkua
 }
 
 // Pää luuppi
@@ -91,7 +108,6 @@ function loop() {
     requestAnimationFrame(loop); // Jatkuva peliluuppi
 
     // Hidastaa peliä jotta se ei mene liian nopeasti, alkuperäinen nopeus 4
-    // Jos peli on liian nopea, lisää lukuun 4
     if (++count < 6) return;
     count = 0;
 
@@ -113,17 +129,24 @@ function loop() {
     if (snake.cells.length > snake.maxCells) snake.cells.pop(); // Poistaa viimeisen jos on liian pitkä
 
     // Piirretään hedelmä tai marja ruudulle
-    context.drawImage(fruitImage, apple.x, apple.y, grid, grid);
+    context.drawImage(fruitImage, apple.x, apple.y, fruitSize, fruitSize);
 
     // Piirretään käärme
     context.fillStyle = 'green';
     snake.cells.forEach(function (cell, index) {
         context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
 
-        // Tarkistaa käärmeen kohtaamisen hedelmän kanssa
-        if (cell.x === apple.x && cell.y === apple.y) {
+        // Tarkistaa käärmeen kohtaamisen hedelmän kanssa (isompi alue huomioitu)
+        if (
+            !waitingForAnswer && // Estää tuplakysymykset
+            cell.x < apple.x + fruitSize &&
+            cell.x + grid > apple.x &&
+            cell.y < apple.y + fruitSize &&
+            cell.y + grid > apple.y
+        ) {
+            waitingForAnswer = true; // ✅ Korjattu: Lukitaan heti ettei tule toista törmäystä
             snake.maxCells++; // Pidentää käärmettä
-            setTimeout(askQuestion, 100); // Pieni viive ennen kysymystä
+            setTimeout(askQuestion, 100); // Kutsutaan kysymys pienen viiveen jälkeen
         }
 
         // Tarkistaa kohtaako käärme itseään -> peli alkaa alusta
@@ -138,6 +161,7 @@ function loop() {
                 score = 0;
                 updateScoreDisplay(); // Nollaa pisteet näkymässä
                 placeNewFruit(); // Asettaa uuden satunnaisen hedelmän
+                waitingForAnswer = false; // Resetoi vastaustilan myös törmäyksessä
             }
         }
     });
