@@ -179,7 +179,7 @@
     function checkWin() {
       const allMatched = [...document.querySelectorAll('.card')].every(card => card.classList.contains('matched'));
       if (allMatched) {
-        document.getElementById('message').textContent = 'Kaikki parit löytyivät! 🎉';
+        document.getElementById('message').textContent = 'Onneksi olkoon! Kaikki parit löytyivät! 🎉';
       }
     }
 
