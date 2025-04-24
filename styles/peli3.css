@@ -1,7 +1,7 @@
 
 
 .container {
-    background-color: white;
+    background-color: rgb(226, 144, 192);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -125,6 +125,7 @@ h3 {
         cursor: pointer;
         box-shadow: 0 .5rem .5rem .5rem rgba(0 0 0 / .3);
         transition: all .1s ease-in-out;
+        background-color: #d67ab8;
     }
 
 #newGame {
@@ -154,11 +155,11 @@ h3 {
 } 
 
 .flags .flag-options ul li.success {
-    background-color: chartreuse;
+    background-color: rgb(174, 235, 113);
 }
 
 .flags .flag-options ul li.wrong {
-    background-color: crimson;
+    background-color: rgb(192, 58, 85);
 }
 
 @media(min-width: 375px){
@@ -190,4 +191,23 @@ main {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 8em); /* 8em = header (4em) + footer (4em) */
+}
+
+header, nav {
+    background-color: #a7e6ff;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.6rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.4rem;
 }
