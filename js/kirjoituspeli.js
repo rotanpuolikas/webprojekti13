@@ -119,16 +119,24 @@ function kirjota(viimeksi, modify){ // en tiiä miks päätin tehä tän kahella
 
     if (kohta == globalTask.length - 1){
         const pistespan = document.getElementById("pistespan")
-        pisteet = calculatePoints(virheet, globalTask.length)
+        pisteet = calculatePoints(virheet)
         pistespan.innerText = "teit yhteensä " + virheet + " virhettä. Pisteet: " + pisteet
+        sessionStorage.setItem("kirjoitus", pisteet)
     }
     return
 }
 
-function calculatePoints(virhe, pituus){
-    // suhteutetaan virheet pituuteen ja mapataan pisteet siihen
+function calculatePoints(virhe){
+    // on ruma mutta toimii
     if(virhe <= 1){return 10}
-    else{
-        pituus / 100 * (pituus - virhe) * 100
-    }
+    else if(virhe <= 3){return 9}
+    else if(virhe <= 5){return 8}
+    else if(virhe <= 7){return 7}
+    else if(virhe <= 9){return 6}
+    else if(virhe <= 11){return 5}
+    else if(virhe <= 13){return 4}
+    else if(virhe <= 15){return 3}
+    else if(virhe <= 17){return 2}
+    else if(virhe <= 19){return 1}
+    else{return 0}
 }
