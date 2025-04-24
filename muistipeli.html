@@ -99,22 +99,21 @@
     </nav>
   </header>
   <h1>Muistipeli</h1>
-  <p>Pisteet: <span id="score">0</span></p>
+  <p>Pisteet: <span id="score">0/10</span></p>
   <button onclick="resetGame()">Nollaa peli</button>
   <div id="game-board"></div>
   <div id="message"></div>
 
   <script>
-   const baseSymbols = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍍', '🥝', '🍑'];
+    const baseSymbols = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍍', '🥝', '🍑'];
     const symbols = [...baseSymbols.slice(0, 5), ...baseSymbols.slice(0, 5)]; // 5 paria, 10 korttia
 
-    let selected = [], score = localStorage.getItem('score') || 0;
-    document.getElementById('score').textContent = score;
+    let selected = [], score = 0, maxScore = 10;
+    document.getElementById('score').textContent = `${score}/${maxScore}`;
 
-    function updateScore(points) {
-      score = parseInt(score) + points;
-      localStorage.setItem('score', score);
-      document.getElementById('score').textContent = score;
+    function updateScore() {
+      score += 2; // Increment score by 1 for each matched pair
+      document.getElementById('score').textContent = `${score}/${maxScore}`;
     }
 
     function createBoard() {
@@ -160,7 +159,7 @@
       if (first.dataset.symbol === second.dataset.symbol) {
         first.classList.add('matched');
         second.classList.add('matched');
-        updateScore(10);
+        updateScore(); // Increment score by 1 for a match
         checkWin();
       } else {
         first.classList.remove('flipped');
@@ -177,9 +176,8 @@
     }
 
     function resetGame() {
-      localStorage.setItem('score', 0);
       score = 0;
-      document.getElementById('score').textContent = '0';
+      document.getElementById('score').textContent = `${score}/${maxScore}`;
       createBoard();
     }
 
