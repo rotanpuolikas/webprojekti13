@@ -9,7 +9,7 @@ html{
     background-color: #eee;
         overflow-x: hidden;
         background-color: #eee;
-        background-image: url('./images/taustakuva.jpg'); 
+        background-image: ('./images/taustakuva.jpg'); 
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat; 
