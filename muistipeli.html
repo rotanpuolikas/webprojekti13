@@ -112,9 +112,9 @@
     document.getElementById('score').textContent = `${score}/${maxScore}`;
 
     function updateScore() {
-      score += 2; 
+      score += 2; // Lisää 1 piste per pari
       document.getElementById('score').textContent = `${score}/${maxScore}`;
-      localStorage.setItem('muistipeliScore', score); // savelocalstorage
+      sessionStorage.setItem('muistipeli', score); // Tallenna pistemäärä sessionStorageen
     }
 
     function resetGame() {
