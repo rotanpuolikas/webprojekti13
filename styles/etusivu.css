@@ -37,3 +37,11 @@ main p{
     margin: auto;
     text-align: center;
 }
+
+h3 {
+    text-align: center;
+}
+
+html {
+    background-color: rgb(233, 183, 229);
+}

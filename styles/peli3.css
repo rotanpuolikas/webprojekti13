@@ -62,7 +62,7 @@ h3 {
 .box {
     display:flex ;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -88,7 +88,7 @@ h3 {
 
 .flags .flag-img img {
     width: 100%;
-    height: 20rem;
+    height: auto;
     animation: zoom-in-zoom-out 3s ease-in infinite;
 }
 
