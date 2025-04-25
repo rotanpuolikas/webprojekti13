@@ -37,7 +37,7 @@ function gameOver() {
     let finalPoints = Math.max(0, Math.min(10, Math.floor(score / 200))); // Lasketaan pisteet
 
     // Tallenna pelin pistemäärä sessionStorageen
-    sessionStorage.setItem("peli4", finalPoints);
+    sessionStorage.setItem("historiapeli", finalPoints);
 
     // Tarkista ja päivitä high score
     let highScore = sessionStorage.getItem("highScore");
