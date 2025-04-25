@@ -13,7 +13,7 @@ html{
     height: 100%;
 }
 
-#pooh{
+#task{
     margin-left: 6em;
     margin-right: 6em;
     margin-top: 2em;
@@ -35,4 +35,17 @@ html{
 .correct{
     color: green;
     background-color: lightblue;
+}
+
+#pistetaulukko{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    font-size: 1.3em;
+}
+
+#virheet{
+    display: flex;
+    text-align: center;
 }

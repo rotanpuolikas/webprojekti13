@@ -108,3 +108,7 @@ function showResults(count){
 btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
+{
+sessionStorage.setItem("lippupeli", pistemäärä)
+
+};
