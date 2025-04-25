@@ -14,10 +14,10 @@ var game = document.getElementById("game");
 var checkDead; // Muuttuja törmäyksen tarkistamiseen
 
 startButton.addEventListener("click", function() {
-    startGame(); // Käynnistä peli
+    startGame(); 
 });
 restartButton.addEventListener("click", function() {
-    startGameGame(); // Käynnistä peli uudelleen
+    startGameGame(); 
 });
 
 // Piilota peli aluksi
@@ -25,27 +25,27 @@ game.style.display = "none";
 
 // Käynnistä peli "Start"-napista
 startButton.addEventListener("click", function() {
-    game.style.display = "block"; // Näytä peli
-    startButton.style.display = "none"; // Piilota "Start"-nappi
-    restartButton.style.display = "none"; // Piilota "Pelaa uudestaan"-nappi
-    document.getElementById("menu").style.display = "none"; // Piilota menu
-    score = -200; // Nollaa pisteet
+    game.style.display = "block"; 
+    startButton.style.display = "none"; 
+    restartButton.style.display = "none"; 
+    document.getElementById("menu").style.display = "none"; 
+    score = -200; 
 });
 
 // Näytä "Pelaa uudestaan"-nappi pelin päättyessä
 function gameOver() {
     alert("Game Over! Your score: " + Math.floor(score));
-    localStorage.removeItem("lastScore"); // Poista tallennettu pistemäärä
-    game.style.display = "none"; // Piilota peli
-    restartButton.style.display = "inline-block"; // Näytä "Pelaa uudestaan"-nappi
-    document.getElementById("menu").style.display = "inline"; // Näytä menu
+    localStorage.removeItem("lastScore"); 
+    game.style.display = "none"; 
+    restartButton.style.display = "inline-block"; 
+    document.getElementById("menu").style.display = "inline"; 
 }
 
 // Käynnistä peli uudelleen "Pelaa uudestaan"-napista
 restartButton.addEventListener("click", function() {
-   localStorage.setItem("lastScore", Math.floor(score)); // Tallenna paras tulos
-   location.reload(); // Lataa sivu uudelleen
-   document.getElementById("menu").style.display = "block"; // Näytä menu uudelleen
+   localStorage.setItem("lastScore", Math.floor(score));
+   location.reload(); 
+   document.getElementById("menu").style.display = "block"; 
 });
 
 document.addEventListener('keydown', function(event) {
@@ -54,53 +54,51 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// hyppäyksen function
 function jump() {
-    isJumping = true; // Estää uuden hyppy kesken hypyn
-    let position = 130; // Hahmon aloituskorkeus (bottom)
+    isJumping = true;
+    let position = 130;
     let upInterval = setInterval(function() {
         if (position >= 130 + jumpHeight) {
-            // Kun hahmo saavuttaa maksimikorkeuden, lopeta ylösliike
             clearInterval(upInterval);
             let downInterval = setInterval(function() {
                 if (position <= 130) {
-                    // Kun hahmo palaa alkuperäiseen korkeuteen, lopeta alasliike
                     clearInterval(downInterval);
-                    isJumping = false; // Salli uusi hyppy
+                    isJumping = false; 
                 }
-                position -= jumpSpeed; // Liikuta hahmoa alaspäin
+                position -= jumpSpeed;
                 character.style.bottom = position + "px";
             }, 20);
         }
-        position += jumpSpeed; // Liikuta hahmoa ylöspäin
+        position += jumpSpeed;
         character.style.bottom = position + "px";
     }, 20);
 }
 function startGame() {
-    // Tarkista, onko tallennettu pistemäärä olemassa
     let lastScore = localStorage.getItem("lastScore");
     if (lastScore) {
-        alert("Edellinen pistemäärä: " + lastScore); // Näytä edellinen pistemäärä
+        alert("Edellinen pistemäärä: " + lastScore); 
     }
 
-    score = -200; // Nollaa pisteet
-    scoreElement.innerHTML = "Vuosi: " + Math.floor(score); // Päivitä pisteet
-    game.style.display = "block"; // Näytä peli
-    startButton.style.display = "none"; // Piilota "Start"-nappi
-    restartButton.style.display = "none"; // Piilota "Pelaa uudestaan"-nappi
+    score = -200;
+    scoreElement.innerHTML = "Vuosi: " + Math.floor(score); 
+    game.style.display = "block";
+    startButton.style.display = "none"; 
+    restartButton.style.display = "none";
 
     // Käynnistä törmäyksen tarkistus ja pisteiden päivitys
     if (checkDead) {
-        clearInterval(checkDead); // Varmista, ettei vanha intervalli jää päälle
+        clearInterval(checkDead); 
     }
     checkDead = setInterval(function () {
         var characterBottom = parseInt(window.getComputedStyle(character).getPropertyValue("bottom"));
         var obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
 
-        // Päivitä pisteet
-        score += 0.08; // Lisää 0.05 pistettä jokaisella päivityksellä
-        scoreElement.innerHTML = "Vuosi: " + Math.floor(score); // Näytä vain kokonaisluvut
+        // Päivittää pisteet
+        score += 0.08; 
+        scoreElement.innerHTML = "Vuosi: " + Math.floor(score); 
 
-        // Vaihda taustakuva scoren mukaan
+        // Vaihtaa taustakuvan scoren mukaan
         if (score >= -200 && score < 200) {
             document.getElementById("sky").style.backgroundImage = "url('/img/vanha-aika.png')";
         } else if (score >= 200 && score < 500) {
@@ -123,10 +121,10 @@ function startGame() {
             document.getElementById("sky").style.backgroundImage = "url('/img/tulevaisuus.png')";
         }
 
-        // Törmäyksen tarkistus (jos käytössä)
+        // Törmäyksen tarkistus 
         if (obstacleLeft < 75 && obstacleLeft > 0 && characterBottom <= 130) {
-           gameOver(); // Kutsu pelin päättymisfunktiota
+           gameOver(); 
             clearInterval(checkDead);
         }
-    }, 5); // Tarkistetaan törmäys ja päivitetään pisteet 50ms välein
+    }, 5); // Tarkistetaan törmäys ja päivitetään pisteet 5ms välein
 }
