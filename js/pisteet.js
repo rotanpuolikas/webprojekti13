@@ -4,6 +4,7 @@ let yhtpist = 0
 
 function calcPoints(){
     pistetaulukko.push(parseInt(sessionStorage.getItem("kirjoitus")))
+    pistetaulukko.push(parseInt(sessionStorage.getItem("peli4")))
 
 
     pistetaulukko.forEach(peli => {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Game</title>
+    <link rel="stylesheet" href="./styles/teema.css">
     <link rel="stylesheet" href="styles\peli4.css">
 </head>
 <body>
@@ -11,12 +12,12 @@
 
         <nav class="navbar">
             <a href="./index.html" class="nav-item selected">Etusivu</a>
-            <a href="./kirjoituspeli.html" class="nav-item">eka linkki</a>
-            <a href="./peli2.html" class="nav-item">toka linkki</a>
-            <a href="./peli3.html" class="nav-item">kolmas linkki</a>
-            <a href="./peli4.html" class="nav-item">neljäs linkki</a>
-            <a href="#" class="nav-item">viides linkki</a>
-            <a href="#" class="nav-item">kuudes linkki</a>
+            <a href="./kirjoituspeli.html" class="nav-item">kirjoituspeli</a>
+            <a href="./matopeli.html" class="nav-item">Matopeli</a>
+            <a href="./lippupeli.html" class="nav-item">Arvaa lippu</a>
+            <a href="./historiapeli.html" class="nav-item">Juoksu läpi historian</a>
+            <a href="./korttipeli.html" class="nav-item">Korttipeli</a>
+            <a href="./muistipeli.html" class="nav-item">Muistipeli</a>
             <a href="./pisteet.html" class="nav-item">Pisteet</a>
         </nav>
 
@@ -36,6 +37,9 @@
         <div id="character"></div>
         <div id="papukaija"></div>
         <div id="obstacle"></div>
+        <div id="pistetaulukko">
+            <span id="pistespan"></span>
+        </div>
     </div>
     <script src="js\peli4.js"></script>
 </body>
