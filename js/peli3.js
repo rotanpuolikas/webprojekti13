@@ -101,6 +101,9 @@ function showResults(count){
         scoreDiv.style.display = 'block';
         correctAns.innerHTML = rightAnswer;
         incorrectAns.innerHTML = count - rightAnswer;
+
+        // Tallennetaan pistemäärä sessionStorageen
+        sessionStorage.setItem("lippupeli", rightAnswer);
     }
 }
 
@@ -108,7 +111,3 @@ function showResults(count){
 btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
-{
-sessionStorage.setItem("lippupeli", pistemäärä)
-
-};

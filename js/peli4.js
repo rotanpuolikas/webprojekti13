@@ -34,11 +34,23 @@ startButton.addEventListener("click", function() {
 
 // Näytä "Pelaa uudestaan"-nappi pelin päättyessä
 function gameOver() {
-    alert("Game Over! Your score: " + Math.floor(score));
-    localStorage.removeItem("lastScore"); 
-    game.style.display = "none"; 
-    restartButton.style.display = "inline-block"; 
-    document.getElementById("menu").style.display = "inline"; 
+    let finalPoints = Math.max(0, Math.min(10, Math.floor(score / 200))); // Lasketaan pisteet
+
+    // Tallenna pelin pistemäärä sessionStorageen
+    sessionStorage.setItem("historiapeli", finalPoints);
+
+    // Tarkista ja päivitä high score
+    let highScore = sessionStorage.getItem("highScore");
+    if (!highScore || score > highScore) {
+        sessionStorage.setItem("highScore", Math.floor(score)); // Päivitä high score
+        alert("Uusi ennätys! High Score: " + Math.floor(score) + "\nPisteet: " + finalPoints);
+      } else {
+        alert("Game Over! Your score: " + Math.floor(score) + "\nHigh Score: " + highScore);
+    }
+
+    game.style.display = "none";
+    restartButton.style.display = "inline-block";
+    document.getElementById("menu").style.display = "inline";
 }
 
 // Käynnistä peli uudelleen "Pelaa uudestaan"-napista
@@ -76,9 +88,7 @@ function jump() {
 }
 function startGame() {
     let lastScore = localStorage.getItem("lastScore");
-    if (lastScore) {
-        alert("Edellinen pistemäärä: " + lastScore); 
-    }
+
 
     score = -200;
     scoreElement.innerHTML = "Vuosi: " + Math.floor(score); 

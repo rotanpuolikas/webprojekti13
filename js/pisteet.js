@@ -3,8 +3,13 @@ let pistetaulukko = []
 let yhtpist = 0
 
 function calcPoints(){
-    pistetaulukko.push(parseInt(sessionStorage.getItem("kirjoitus")))
+    pistetaulukko.push(parseInt(sessionStorage.getItem("kirjoitus")) || 0);
+
+    pistetaulukko.push(parseInt(sessionStorage.getItem("historiapeli"))|| 0);
+
     pistetaulukko.push(parseInt(sessionStorage.getItem("muistipeli")) || 0);
+
+    pistetaulukko.push(parseInt(sessionStorage.getItem("lippupeli")) || 0);
 
     pistetaulukko.forEach(peli => {
         yhtpist += peli
