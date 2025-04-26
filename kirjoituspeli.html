@@ -43,11 +43,11 @@
     <main>
        
         <!-- Teen tän mahollisimman muokattavaksi, et jos etusivulle tulee muutoksia nii ei pitäis vaikuttaa mun peliin kuiteskaan -->
-
-        <div id="info">
-            <span>Tervetuloa kirjoituspeliin! Kirjoita alla oleva lause, ja koita välttää virheitä! Ajalla ei ole väliä, joten ole huolellinen!</span>
+        <div id="largeinfo">
+            <div id="info">
+                <span>Tervetuloa kirjoituspeliin! Kirjoita alla oleva lause, ja koita välttää virheitä! Ajalla ei ole väliä, joten ole huolellinen! Kirjoita ainakin viisi oikein saadaksesi täydet pisteet! </span>
+            </div>
         </div>
-
         <div id="keycapture">
             <span id="teksti"></span>
         </div>
@@ -56,8 +56,8 @@
         </div>
         <div id="pistetaulukko">
             <span id="pistespan"></span>
+            <button type="button" id="restart" onclick="window.location.href='./kirjoituspeli.html'">Uudestaan!</button>
         </div>
-        
         <script src="./js/kirjoituspeli.js"></script>
     </main>
     <footer>
