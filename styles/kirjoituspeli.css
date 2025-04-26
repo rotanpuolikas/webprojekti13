@@ -16,7 +16,7 @@ html{
 #task{
     margin-left: 6em;
     margin-right: 6em;
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
     font-size: 1.4em;
 }
@@ -48,4 +48,13 @@ html{
 #virheet{
     display: flex;
     text-align: center;
+}
+
+
+#info{
+    justify-content: center;
+    display: flex;
+    background-color: #aaa;
+    width: fit-content;
+    padding: 1em;
 }
