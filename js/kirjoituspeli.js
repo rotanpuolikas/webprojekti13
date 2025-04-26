@@ -1,6 +1,6 @@
 // kirjotuspeli...
 let viimeksi = null;
-let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890!?"
+let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890!?:;-"
 let Task = ""
 let globalTask = "" //välttelin typerää return ongelmaa tekemällä tästä globaalin muuttujan... ei ole optimi mutta tällä pärjätään
 
@@ -11,7 +11,7 @@ let virheet = 0
 //texturl = "https://raw.githubusercontent.com/rotanpuolikas/webprojekti13/refs/heads/main/resources/Task.txt"
 texturl = "./resources/pooh.txt"
 
-tasks = ["Harjoittelen kymmensormijärjestelmää!", "Katso äiti, minä kirjoitan!", "", "", "", "", ""]
+tasks = ["Harjoittelen kymmensormijärjestelmää! Olen kohta mestari!", "Katso äiti, minä kirjoitan tietokoneella!", "Rakastan kissoja, sillä ne ovat todella söpöjä.", "Kirjoitusvirheitä löytyy kaikkialta, jopa täsät lauseesta!", "Mitäköhän Muumimamman vaapukkamehu sisältää?", "Vapaa-ajallani kuuntelen musiikkia ja pelaan videopelejä.", "Osaatko navigoida Pisteet-sivulle? Sieltä näet yhteispisteesi!", "Vielä jotakin pitäisi keksiä tähän, mahdoton tehtävä"]
 
 /*
 async function getTask(texturl){ //haetaan paikallisesta tekstitiedostosta tuo data
@@ -122,7 +122,7 @@ function kirjota(viimeksi, modify){ // en tiiä miks päätin tehä tän kahella
 
     if (kohta == globalTask.length - 1){
         const pistespan = document.getElementById("pistespan")
-        storagepisteet = parseInt(sessionStorage.getItem("kirjoitus"))
+        storagepisteet = parseInt(sessionStorage.getItem("kirjoitus")) || 0
         pisteet = calculatePoints(virheet)
         if(pisteet + storagepisteet >= 10){
             pisteet = 10

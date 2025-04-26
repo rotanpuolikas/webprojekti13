@@ -69,6 +69,11 @@ html{
     margin-right: 15em;
 }
 
+#nappidiv{
+    display: flex;
+    justify-content: center;
+}
+
 #restart{
     border: 1px solid #aaa;
     border-radius: 8px;
@@ -79,9 +84,5 @@ html{
     padding: 1em 1.2em;
     background-color: #ccc;
     color: black;
-    font-size: 0.8em;
-}
-
-.hidden{
-    display: none;
+    font-size: 1em;
 }
