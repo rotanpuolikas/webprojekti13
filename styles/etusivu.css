@@ -36,6 +36,8 @@ main p{
 
 .pelilista img{
     max-width: 130px;
+    object-fit: contain;
+
 }
 
 .eeppistä{
