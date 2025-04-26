@@ -1,6 +1,6 @@
 // kirjotuspeli...
 let viimeksi = null;
-let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890"
+let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890!?"
 let Task = ""
 let globalTask = "" //välttelin typerää return ongelmaa tekemällä tästä globaalin muuttujan... ei ole optimi mutta tällä pärjätään
 
@@ -11,7 +11,7 @@ let virheet = 0
 //texturl = "https://raw.githubusercontent.com/rotanpuolikas/webprojekti13/refs/heads/main/resources/Task.txt"
 texturl = "./resources/pooh.txt"
 
-tasks = ["testi1234", "Testi1234", "abcd,."]
+tasks = ["Harjoittelen kymmensormijärjestelmää!", "", "", "", "", "", ""]
 
 async function getTask(texturl){ //haetaan paikallisesta tekstitiedostosta tuo data
     await fetch(texturl)
