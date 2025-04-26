@@ -34,6 +34,10 @@ main p{
     text-decoration: underline;
 }
 
+.pelilista img{
+    max-width: 130px;
+}
+
 .eeppistä{
     margin: auto;
     text-align: center;
@@ -41,6 +45,8 @@ main p{
 
 h3 {
     text-align: center;
+    margin-left: 7em;
+    margin-right: 7em;
 }
 
 html {
