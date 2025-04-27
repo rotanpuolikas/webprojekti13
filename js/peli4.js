@@ -32,6 +32,7 @@ startButton.addEventListener("click", function() {
     score = -200; 
 });
 
+
 // Näytä "Pelaa uudestaan"-nappi pelin päättyessä
 function gameOver() {
     let finalPoints = Math.max(0, Math.min(10, Math.floor(score / 200))); // Lasketaan pisteet
@@ -86,9 +87,17 @@ function jump() {
         character.style.bottom = position + "px";
     }, 20);
 }
+
+// Päivitä live-pisteet reaaliajassa
+function updateLiveScore() {
+    const liveScoreElement = document.getElementById("liveScore");
+    const livePoints =Math.max(0, Math.min(10, Math.floor(score / 200)));
+    liveScoreElement.innerHTML = "Pisteet: " + livePoints + " / 10";
+
+}
+
 function startGame() {
     let lastScore = localStorage.getItem("lastScore");
-
 
     score = -200;
     scoreElement.innerHTML = "Vuosi: " + Math.floor(score); 
@@ -107,6 +116,7 @@ function startGame() {
         // Päivittää pisteet
         score += 0.08; 
         scoreElement.innerHTML = "Vuosi: " + Math.floor(score); 
+        updateLiveScore(); // Päivitä live-pisteet
 
         // Vaihtaa taustakuvan scoren mukaan
         if (score >= -200 && score < 200) {
