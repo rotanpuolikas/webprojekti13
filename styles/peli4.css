@@ -5,7 +5,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    
 }
 
 #game {
@@ -29,6 +29,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 button {
     padding: 10px 20px;
@@ -159,4 +160,27 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
-}   
+}
+
+#sidebar {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    z-index: 10;
+}
+
+#sidebar h2, #sidebar h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#sidebar p {
+    margin: 5px 0;
+    font-size: 14px;
+}

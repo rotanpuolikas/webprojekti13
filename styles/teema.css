@@ -73,6 +73,10 @@ footer a:hover{
     text-decoration: underline;
 }
 
+html {
+    background-color: rgb(233, 183, 229);
+}
+
 /* dropdown menun css, kommentoituna for future reference
 #dropbutton{
     background-color: white;
