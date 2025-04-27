@@ -15,6 +15,10 @@ body {
     min-height: 100vh;
 }
 
+header{
+    width: 100%;
+}
+
 /* Pelialueen canvas-ruutu */
 canvas {
     background-color: black;           /* Canvasin taustaväri */
