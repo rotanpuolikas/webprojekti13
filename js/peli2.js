@@ -93,6 +93,10 @@ function askQuestion() {
 
     if (score >= 10) {
         alert("Onneksi olkoon! Sait kaikki oikein!");
+        score = 0; // Nollaa pisteet pelin jälkeen
+        // Tallennetaan matopelin pisteet sessionStorageen
+        sessionStorage.setItem("matopeli", score);
+
         location.reload(); // Aloittaa pelin uudelleen
     }
 

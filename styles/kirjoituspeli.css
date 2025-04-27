@@ -16,7 +16,7 @@ html{
 #task{
     margin-left: 6em;
     margin-right: 6em;
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
     font-size: 1.4em;
 }
@@ -48,4 +48,41 @@ html{
 #virheet{
     display: flex;
     text-align: center;
+}
+
+
+#info{
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    width: fit-content;
+    margin-top: 1em;
+    text-align: center;
+    align-self: center;
+}
+
+#largeinfo{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+#nappidiv{
+    display: flex;
+    justify-content: center;
+}
+
+#restart{
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em 1.2em;
+    background-color: #ccc;
+    color: black;
+    font-size: 1em;
 }

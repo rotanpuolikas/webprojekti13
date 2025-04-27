@@ -43,7 +43,11 @@
     <main>
        
         <!-- Teen tän mahollisimman muokattavaksi, et jos etusivulle tulee muutoksia nii ei pitäis vaikuttaa mun peliin kuiteskaan -->
-
+        <div id="largeinfo">
+            <div id="info">
+                <span>Tervetuloa kirjoituspeliin! Kirjoita alla oleva lause, ja koita välttää virheitä! Ajalla ei ole väliä, joten ole huolellinen! Kirjoita ainakin viisi oikein saadaksesi täydet pisteet! </span>
+            </div>
+        </div>
         <div id="keycapture">
             <span id="teksti"></span>
         </div>
@@ -53,13 +57,15 @@
         <div id="pistetaulukko">
             <span id="pistespan"></span>
         </div>
-        
+        <div id="nappidiv">
+            <button type="button" id="restart" onclick="window.location.href='./kirjoituspeli.html'">Uudestaan!</button>
+        </div>
         <script src="./js/kirjoituspeli.js"></script>
     </main>
     <footer>
-        <p>footeriin vois tehä jonku kivan logon</p>
-        <p>toki se vois mennä tonne yläpalkkiinki et siitä pääsis etusivulle</p>
-        <a href="https://github.com/rotanpuolikas/webprojekti13">Linkki githubbirepoon</a>
+        <a href="./info.html">Info</a>
+        <p>Ryhmä 13 pelisivu</p>
+        <a href="https://github.com/rotanpuolikas/webprojekti13">GitHub</a>
     </footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // kirjotuspeli...
 let viimeksi = null;
-let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890"
+let kirjaimet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖabcdefghijklmnopqrstuvwxysåäö ,.1234567890!?:;-"
 let Task = ""
 let globalTask = "" //välttelin typerää return ongelmaa tekemällä tästä globaalin muuttujan... ei ole optimi mutta tällä pärjätään
 
@@ -11,8 +11,9 @@ let virheet = 0
 //texturl = "https://raw.githubusercontent.com/rotanpuolikas/webprojekti13/refs/heads/main/resources/Task.txt"
 texturl = "./resources/pooh.txt"
 
-tasks = ["testi1234", "Testi1234", "abcd,."]
+tasks = ["Harjoittelen kymmensormijärjestelmää! Olen kohta mestari!", "Katso äiti, minä kirjoitan tietokoneella!", "Rakastan kissoja, sillä ne ovat todella söpöjä.", "Kirjoitusvirheitä löytyy kaikkialta, jopa täsät lauseesta!", "Mitäköhän Muumimamman vaapukkamehu sisältää?", "Vapaa-ajallani kuuntelen musiikkia ja pelaan videopelejä.", "Osaatko navigoida Pisteet-sivulle? Sieltä näet yhteispisteesi!", "Vielä jotakin pitäisi keksiä tähän, mahdoton tehtävä"]
 
+/*
 async function getTask(texturl){ //haetaan paikallisesta tekstitiedostosta tuo data
     await fetch(texturl)
         .then(response => response.text())
@@ -24,6 +25,8 @@ async function getTask(texturl){ //haetaan paikallisesta tekstitiedostosta tuo d
             console.error(error)
         })
 }
+        // legacy, tätä ei enää käytetä, ei ollut käytännöllistä
+        */
 
 //getTask(texturl)
 randomTask(tasks)
@@ -119,8 +122,15 @@ function kirjota(viimeksi, modify){ // en tiiä miks päätin tehä tän kahella
 
     if (kohta == globalTask.length - 1){
         const pistespan = document.getElementById("pistespan")
+        storagepisteet = parseInt(sessionStorage.getItem("kirjoitus")) || 0
         pisteet = calculatePoints(virheet)
-        pistespan.innerText = "teit yhteensä " + virheet + " virhettä. Pisteet: " + pisteet
+        if(pisteet + storagepisteet >= 10){
+            pisteet = 10
+        }
+        else{
+            pisteet = pisteet + storagepisteet
+        }
+        pistespan.innerText = "teit yhteensä " + virheet + " virhettä. Yhteispisteet: " + pisteet
         sessionStorage.setItem("kirjoitus", pisteet)
     }
     return
@@ -128,15 +138,7 @@ function kirjota(viimeksi, modify){ // en tiiä miks päätin tehä tän kahella
 
 function calculatePoints(virhe){
     // on ruma mutta toimii
-    if(virhe <= 1){return 10}
-    else if(virhe <= 3){return 9}
-    else if(virhe <= 5){return 8}
-    else if(virhe <= 7){return 7}
-    else if(virhe <= 9){return 6}
-    else if(virhe <= 11){return 5}
-    else if(virhe <= 13){return 4}
-    else if(virhe <= 15){return 3}
-    else if(virhe <= 17){return 2}
-    else if(virhe <= 19){return 1}
+    if(virhe <= 1){return 2}
+    else if(virhe <= 5){return 1}
     else{return 0}
 }
