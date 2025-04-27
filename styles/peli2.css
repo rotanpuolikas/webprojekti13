@@ -8,12 +8,15 @@ html, body {
 
 /* Sivun yleisasettelu: musta tausta, keskitys ja korkeus */
 body {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     min-height: 100vh;
+}
+
+header{
+    width: 100%;
 }
 
 /* Pelialueen canvas-ruutu */
