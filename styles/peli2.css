@@ -8,7 +8,6 @@ html, body {
 
 /* Sivun yleisasettelu: musta tausta, keskitys ja korkeus */
 body {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
