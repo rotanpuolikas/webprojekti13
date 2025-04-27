@@ -19,6 +19,14 @@ function calcPoints(){
     console.log(yhtpist)
 
     teksti.innerText = yhtpist
+
+    document.getElementById("kirjoituspeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("kirjoitus") || 0)
+    document.getElementById("matopeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("matopeli") || 0)
+    document.getElementById("lippupeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("lippupeli") || 0)
+    document.getElementById("historiapeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("historiapeli") || 0)
+    document.getElementById("korttipeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("korttipeli") || 0)
+    document.getElementById("muistipeli").innerText = "Pisteet: " + parseInt(sessionStorage.getItem("muistipeli") || 0)
+
 }
 
 // puskekaa sessionstorageen pelin pistemäärä tälleen:

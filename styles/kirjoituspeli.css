@@ -4,6 +4,9 @@ html{
 }
 */
 
+html{
+    background-color: #eee;
+}
 
 #keycapture{
     display: flex;
